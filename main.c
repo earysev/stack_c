@@ -4,22 +4,23 @@
 
 int main() {
     // создаем стек
-    Stack stack;
-    stack.head = NULL;
+    pStack stack = NULL;
 
+
+    push(&stack, 4);
     push(&stack, 1);
-    push(&stack, 2);
+    push(&stack, 8);
     push(&stack, 3);
 
-    printf("%d\n", pop(&stack));
-    printf("%d\n", pop(&stack));
-    printf("%d\n", pop(&stack));
+    printf("%d\n", max_value(&stack));
 
     pop(&stack);
+    printf("%d\n", max_value(&stack));
 
+    pop(&stack);
+    printf("%d\n", max_value(&stack));
 
-    // печатаем максимальное значение
-    printf("Max value is: %d\n", stack.max_data);
+    free_stack(&stack);
 
     return 0;
 }

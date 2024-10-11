@@ -1,18 +1,21 @@
 // структура элемента стека
-typedef struct stack_item {
+typedef struct stack {
     // данные
     int data;
     // указатель на следующий элемент стека
-    struct stack_item *next;
-} Stack_item;
+    struct stack *next;
+} Stack, *pStack, **ppStack;
 
-typedef struct stack {
-    int max_data;
-    Stack_item *head;
-} Stack;
+
 
 // функция добавления элемента в стек
-void push(Stack *head, int data);
+void push(ppStack stack, int data);
 
 // функция удаления элемента из стека
-int pop(Stack *head);
+int pop(ppStack stack);
+
+// возвращает максимум из стека
+int max_value(ppStack stack);
+
+// освобождвем память стека
+void free_stack(ppStack stack);
